@@ -39,10 +39,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewModel> {
     final Posts postobj=posts.get(position);
 
     if (postobj.getContent().length() > 60){
-        holder.content.setText(postobj.getContent().charAt(60)+"....");
+        String substrg=postobj.getContent();
+        holder.content.setText("Content: "+substrg.substring(0,30)+"....");
     }
     holder.slogan.setText("Slug: "+postobj.getSlug());
-    holder.date.setText(postobj.getDate());
+    holder.date.setText("Date: "+postobj.getDate());
     holder.title.setText("Title: "+postobj.getTitle());
     holder.imgnext.setOnClickListener(new View.OnClickListener() {
         @Override
